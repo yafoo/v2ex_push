@@ -1,7 +1,7 @@
 // new Env('v2ex消息通知')
 // https://github.com/yafoo/v2ex_push
 // 本脚本运行于青龙面板，依赖系统自带got js库
-// cron="*\/5 * * * *"
+// cron "*/5 * * * *"
 // 新建环境变量V2EX_TOKEN，设置token
 // v2ex_config.json，运行参数：
 // last_message_id：最后消息ID
