@@ -37,12 +37,12 @@
 
     const now_time = time();
     if(!config.last_message_id || !config.api_query_limit || now_time - config.last_message_time < config.api_query_limit_time || now_time - config.last_query_time > config.api_query_limit_peroid_time) {
-        doTask();
+        await doTask();
     } else {
         console.log('v2ex_push任务执行成功，本次未调用API！');
     }
 
-    function doTask(p = 1) {
+    async function doTask(p = 1) {
         const res = await request(`notifications?p=${p}`);
         if(res && res.success && res.result && res.result.length) {
             const list = res.result;
