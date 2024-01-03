@@ -2,7 +2,7 @@
 v2ex消息通知推送脚本(青龙面板)
 
 ## 拉库
-```
+```bash
 ql repo https://github.com/yafoo/v2ex_push.git
 ```
 
@@ -17,6 +17,14 @@ ql repo https://github.com/yafoo/v2ex_push.git
 定时规则：每10天
 ```
 
+## 环境变量
+
+青龙面板->环境变量->创建变量
+```
+名称：V2EX_TOKEN
+值：填写你在v2ex获取的token，获取地址：https://www.v2ex.com/settings/tokens
+```
+
 ## 脚本配置
 
 脚本首次运行后，会在脚本同目录生成`v2ex_config.json`配置文件
@@ -29,4 +37,4 @@ ql repo https://github.com/yafoo/v2ex_push.git
 
 - 参数api_query_limit_peroid_time，默认3600，即1小时，即动态调整时，每1小时查询一次v2接口。
 
-这个配置主要是为v2ex接口省流的，请根据自己需要调整。
+这个配置主要是为v2ex接口省流的，请根据需要自己调整。
