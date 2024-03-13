@@ -22,10 +22,16 @@
             headers: {
                 Authorization: `Bearer ${process.env.V2EX_TOKEN}`
             },
+            timeout: {
+                request: 10000
+            },
             ...params
         }
-        const res = await got[method]('https://www.v2ex.com/api/v2/' + api_name, options).json();
-        return res;
+        try {
+            return await got[method]('https://www.v2ex.com/api/v2/' + api_name, options).json();
+        } catch(e) {
+            return {error: e.message};
+        }
     }
 
     const config_file = './v2ex_config.json';
@@ -71,8 +77,8 @@
             fs.writeFileSync(config_file, JSON.stringify(config, null, 4) , 'utf-8');
             console.log('v2ex_push任务执行成功！');
         } else {
-            sendNotify('[f][v2ex]任务执行失败！');
-            console.log('v2ex_push任务执行失败！');
+            sendNotify('[f][v2ex]任务执行失败！', JSON.stringify(res));
+            console.log('v2ex_push任务执行失败！', JSON.stringify(res));
         }
     }
 
